@@ -1,27 +1,37 @@
-# Ticket-Go
+# Ticket-Go 🎟️
+#  Sistema de Gestión de Eventos con Firebase
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
 
-## Development server
+Este proyecto es una plataforma interactiva para la gestión de eventos que incluye funcionalidades CRUD y características de autenticación, visualización de eventos, carrito de compras y confirmación de pedidos, todo integrado con Firebase.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Características Principales
 
-## Build
+###  **Autenticación**
+- Registro e inicio de sesión utilizando Firebase Authentication.
+- Redirección automática para usuarios no autenticados.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+###  **Gestión de Eventos**
+- Visualización de eventos con filtros dinámicos por **categoría** y **ubicación**.
+- Funcionalidades de eventos como: Crear, editar y eliminar.
+- Etiquetas automáticas que destacan los eventos con descuentos.
 
-## Running unit tests
+###  **Carrito de Compras**
+- Selección dinámica de entradas desde los eventos disponibles.
+- Actualización automática de la disponibilidad de entradas en **Firestore**.
+- Limpieza automática del carrito después de confirmar la compra.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+###  **Confirmación de Compra**
+- Posibilidad de adjuntar un comprobante de pago.
+- Registro de pedidos directamente en Firebase.
+- Restablecimiento automático de estados de eventos en Firestore (`addedToCart: false`).
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+##  **Cómo Ejecutar el Proyecto**
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Clona o descarga ese repositorio
+2. Asegurate de tener las dependencias npm install instaladas (node modules)
+3. Compilar/ ejecutar el servidor de desarrollo con ng server
