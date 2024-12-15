@@ -1,0 +1,90 @@
+.evento-form-dashboard {
+    padding: 2rem;
+
+    h1 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #2d3436;
+    }
+
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: left;
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #2d3436;
+    }
+  
+    .form-container {
+      margin: 1rem 0;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+  
+      label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+  
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+  
+      button {
+        display: block;
+        margin-top: 1rem;
+      }
+    }
+  
+    .eventos-list {
+      margin-top: 2rem;
+  
+      table {
+        width: 100%;
+        border-collapse: collapse;
+  
+        th, td {
+          border: 1px solid #ddd;
+          padding: 0.5rem;
+          text-align: left;
+        }
+  
+        th {
+          background-color: #f4f4f4;
+        }
+      }
+    }
+
+    .btn1 {
+        color:rgb(153, 24, 24);
+        background-color: transparent;
+        border:  none;
+    }
+
+    button.btn.btn-primary {
+        background-color: #424242;
+        border: none;
+    }
+
+    button.btn.btn-primary:hover {
+      background-color: #282828;
+      border: none;
+      margin-top: 0;
+  }
+
+
+  }
+  

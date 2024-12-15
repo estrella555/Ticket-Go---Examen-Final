@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+</head>
+<body>
+
+  <h1>Formulario de Registro</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="form-control-group">
+            <label for="name">Nombre</label>
+            <input formControlName="name" class="form-control" type="text" id="name">
+          </div>
+          <div class="form-control-group">
+            <label for="nickname">Nickname</label>
+            <input formControlName="nickname" class="form-control" type="text" id="nickname">
+          </div>
+          <div class="form-control-group">
+            <label for="photoURL">URL de Foto</label>
+            <input formControlName="photoURL" class="form-control" type="text" id="photoURL">
+          </div>          
+          <div class="form-control-group">
+            <label for="phone">Teléfono</label>
+            <input formControlName="phone" class="form-control" type="text" id="phone">
+          </div>
+          <div class="form-control-group">
+            <label for="email">Email</label>
+            <input formControlName="email" class="form-control" type="text" id="email">
+          </div>
+          <div class="form-control-group">
+            <label for="password">Password</label>
+            <input formControlName="password" class="form-control" type="password" id="password">
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Iniciar sesión
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

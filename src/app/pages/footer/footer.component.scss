@@ -1,0 +1,34 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  position: fixed;
+  margin-bottom: 0;
+}
+
+.footer {
+  background-color: #424242;
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif; // Aplicar la tipografía
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    color: #FFFFF9;
+
+    a {
+      color: #FFFFF9;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: lighten(#FFFFF9, 20%);
+      }
+    }
+  }
+}

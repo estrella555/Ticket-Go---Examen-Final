@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+
+  <h1>Inicio de sesión</h1>
+  
+  <form class="form-container" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div>
+      <label for="email">Email</label>
+      <input formControlName="email" type="text" id="email">
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input formControlName="password" type="password" id="password">
+    </div>
+    <button type="submit">Iniciar sesión</button>
+    <div>
+      <span>¿No tienes una cuenta? <a [routerLink]="['/register']">Regístrate ahora</a></span>
+      <div><a [routerLink]="['/forgot']">¿Olvidaste tu contraseña?</a></div>
+    </div>
+  </form>
+</body>
+</html>

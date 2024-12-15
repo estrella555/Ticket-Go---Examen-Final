@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Carrito</title>
+</head>
+<body>
+  <div class="cart-container">
+    <h1>Mi Carrito</h1>
+
+    <!-- Mostrar los elementos del carrito si existen -->
+    <div *ngIf="cartItems.length > 0; else emptyCart">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <h2>{{ item.nombre || item.name }}</h2>
+        <img [src]="item.photoURL" alt="{{ item.nombre }}" />
+
+        <!-- Ubicacion -->
+        <p><strong>Ubicacion:</strong> {{ item.lugar || item.location  }}</p>
+
+        <!-- Cantidad -->
+        <p><strong>Cantidad:</strong> {{ item.cantidadEntradas }}</p>
+      
+        <!-- Precio -->
+        <p><strong>Precio:</strong>
+          <span *ngIf="item.precioConDescuento && item.precioConDescuento < item.precio" class="precio-tachado">
+            {{ item.precio }} $
+          </span>
+          <span>
+            {{ item.precioConDescuento && item.precioConDescuento < item.precio ? item.precioConDescuento : item.precio }} Bs
+          </span>
+        </p>
+
+        <!-- Precio Total -->
+        <p><strong>Precio Total:</strong>
+          <span *ngIf="item.precioConDescuento && item.precioConDescuento < item.precio" class="precio-tachado">
+            {{ item.cantidadEntradas * item.precio }} Bs
+          </span>
+          <span>
+            {{ item.precioConDescuento && item.precioConDescuento < item.precio ? item.cantidadEntradas * item.precioConDescuento : item.cantidadEntradas * item.precio }} Bs
+          </span>
+        </p>
+      </div>
+
+      <div class="total-carrito">
+        <p><strong>Total del Carrito:</strong> {{ totalCarrito }} Bs</p>
+      </div>
+
+      <!-- Botones para vaciar el carrito o ir a pagar -->
+      <button (click)="clearCart()" class="btn btn-danger">Vaciar Carrito</button>
+      <button (click)="irACheckout()" class="btn btn-success">Pagar</button>
+    </div>
+
+    <!-- Mostrar mensaje si el carrito está vacío -->
+    <ng-template #emptyCart>
+      <p>No hay elementos en el carrito.</p>
+    </ng-template>
+  </div>
+</body>
+</html>

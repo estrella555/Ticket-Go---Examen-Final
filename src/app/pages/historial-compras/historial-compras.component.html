@@ -1,0 +1,26 @@
+<main class="historial-compras">
+    <h1>Historial de Compras</h1>
+  
+    <div *ngIf="compras.length > 0; else noCompras">
+      <div *ngFor="let compra of compras" class="compra">
+        <h2>Compra realizada el {{ compra.fecha | date:'medium' }}</h2>
+        <p>Método de Pago: {{ compra.metodoPago }}</p>
+        <p>Total: {{ compra.total }} Bs</p>
+        <ul>
+          <li *ngFor="let item of compra.items">
+            <h3>{{ item.nombre }}</h3>
+            <p>Lugar: {{ item.lugar }}</p>
+            <p>Fecha: {{ item.fecha }}</p>
+            <p>Cantidad: {{ item.cantidadEntradas }} entradas</p>
+            <p>Precio Total: {{ item.precioTotal }} Bs</p>
+          </li>
+        </ul>
+        <p>Comprobante: {{ compra.comprobante }}</p>
+      </div>
+    </div>
+  
+    <ng-template #noCompras>
+      <p>No se han encontrado compras.</p>
+    </ng-template>
+  </main>
+  

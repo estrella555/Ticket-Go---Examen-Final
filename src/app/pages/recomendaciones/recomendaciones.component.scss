@@ -1,0 +1,78 @@
+@import '../../../styles.scss'; // Importa las variables de colores
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  overflow-x: hidden; /* Evitar que el body se desplace horizontalmente */
+}
+
+.recomendaciones-container {
+  margin: 20px auto; /* Centrar el contenedor horizontalmente */
+  padding: 0 10px; /* Añadir un poco de espacio lateral */
+  overflow-x: hidden; /* Evitar el desplazamiento horizontal del contenedor */
+  max-width: 70vw; /* Ajustar el contenedor al 70% del ancho de la pantalla visible */
+  font-family: 'Poppins', sans-serif; // Aplicar la tipografía
+}
+
+h3 {
+  color: $color-primary;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.recomendaciones-cards {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  scroll-behavior: smooth; /* Desplazamiento suave */
+  white-space: nowrap; /* Evitar que las tarjetas se rompan en varias líneas */
+  padding-bottom: 10px; /* Añadir espacio debajo para la barra de desplazamiento */
+}
+
+.recomendaciones-card {
+  display: inline-block; /* Permitir que las tarjetas estén una al lado de la otra */
+  border: 1px solid $color-secondary;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-align: center;
+  width: 200px; /* Fijar el ancho de la tarjeta */
+  box-sizing: border-box; /* Asegurar que el relleno esté incluido en el ancho */
+  overflow: hidden; /* Evitar que el contenido se desborde */
+  flex-shrink: 0; /* Evitar que las tarjetas se encojan */
+  background-color: $color-white;
+
+  h4 {
+    margin: 0;
+    font-size: 1rem; /* Reducir el tamaño de fuente de h4 */
+    color: $color-secondary;
+    white-space: nowrap; /* Evitar que el texto se rompa en varias líneas */
+    overflow: hidden; /* Ocultar el texto que excede el ancho de la tarjeta */
+    text-overflow: ellipsis; /* Añadir puntos suspensivos al final del texto que se desborda */
+  }
+
+  p {
+    margin: 5px 0;
+    color: $color-secondary;
+    font-size: 0.9rem;
+  }
+
+  .btn-ver-mas {
+    background-color: $color-primary;
+    color: $color-white;
+    border: none;
+    padding: 5px 10px; /* Reducir el tamaño del botón */
+    font-size: 0.8rem; /* Reducir el tamaño de la fuente */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+
+  .btn-ver-mas:hover {
+    background-color: darken($color-primary, 10%);
+    transform: scale(1.05);
+  }
+}

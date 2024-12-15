@@ -1,0 +1,91 @@
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Botón para abrir el modal -->
+<div class="toolbar">
+  <div class="dropdown">
+    <button id="dropdownFilters" class="btn btn-primary">
+      <i class="fa fa-filter"></i>
+    </button>
+    <div class="dropdown-content">
+      <h1>Filtrar</h1>
+      <div class="filter-container">
+        <h3>Categorías</h3>
+        <select id="category-select" (change)="filterByCategory($event)">
+          <option value="">Todas las categorías</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+      </div>
+      <div class="filter-container">
+        <h3>Ubicación</h3>
+        <select id="location-select" (change)="filterByLocation($event)">
+          <option value="">Todos los lugares</option>
+          <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button class="btn btn-secondary" (click)="applyFilters()">Aplicar</button>
+        <button class="btn btn-secondary" (click)="clearFilters()">Limpiar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Lista de eventos -->
+<div class="event-section">
+  <div *ngIf="filteredEventos.length > 0" class="cards-container">
+    <div *ngFor="let evento of filteredEventos" class="card">
+      <img class="card-img-top" [src]="evento.photoURL" alt="Card image cap"/>
+
+      <div class="card-body">
+        <h5 class="card-title">{{ evento.name }}</h5>
+        <!-- Etiqueta de descuento -->
+        <div *ngIf="evento.discount" class="discount-label">
+          -{{ evento.discount }}%
+        </div>
+        <p class="card-text">{{ evento.description }}</p>
+        <p class="card-text">
+          <strong>Fecha:</strong> {{ evento.date | date: 'medium' }}
+        </p>
+        <p class="card-text">
+          <strong>Lugar:</strong> {{ evento.location }}
+        </p>
+        <p class="card-text">
+          <strong>Ciudad/Pais:</strong> {{ evento.city }}, {{ evento.country }}
+        </p>
+        <p class="card-text">
+          <strong>Categoría:</strong> {{ evento.category }}
+        </p>
+
+
+
+        <div class="button-group">
+          <button
+            [routerLink]="['/evento', evento.id!]"
+            class="btn btn-info"
+          >
+            Ver más
+          </button>
+          <button 
+          (click)="toggleFavorite(evento)"
+          class="btn btn-favorite"
+          [ngClass]="{'btn-success': evento.isFavorite, 'btn-outline-info': !evento.isFavorite}"
+        >
+          <i [ngClass]="evento.isFavorite ? 'fas fa-bookmark' : 'far fa-bookmark'"></i>
+        </button>
+        
+
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="filteredEventos.length === 0" class="no-events">
+    <p>No hay eventos disponibles.</p>
+  </div>
+</div>

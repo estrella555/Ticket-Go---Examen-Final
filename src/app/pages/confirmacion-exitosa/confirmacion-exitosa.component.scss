@@ -1,0 +1,44 @@
+@import '../../../styles.scss'; // Importa las variables de colores
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.confirmacion-exitosa {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  height: 45vh;
+  
+
+  h1 {
+    color: #424242;
+    font-size: 2rem;
+    margin-top: 13%;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #424242;
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #424242;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Poppins', sans-serif; // Aplicar la tipografía
+
+    &:hover {
+      background-color: darken(#424242, 10%);
+      transform: scale(1.05);
+    }
+  }
+}

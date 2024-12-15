@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de usuario</title>
+</head>
+<body>
+  <div *ngIf="profile" class="profile-container">
+    <h1>Información de usuario</h1>
+    <div class="profile-details">
+      <img class="profile-img" [src]="profile.photoURL"  alt="Profile image">
+      <div class="profile-details-2">
+        <p><strong>Nombre Completo:</strong> {{ profile.name }}</p>
+        <p><strong>Nickname:</strong> {{ profile.nickname }}</p>
+        <p><strong>Email:</strong> {{ profile.email }}</p>
+        <p><strong>Telefono:</strong> {{ profile.phone }}</p>
+
+      </div>
+    </div>
+    <h2>Configuración del perfil</h2>
+
+    <!-- Botones de perfil -->
+    <div class="history-container">
+      <button [routerLink]="['/historial-compras']" class="btn btn-secondary">Ver historial</button>
+      <button (click)="toggleFavorites()" class="btn btn-secondary">Favoritos</button>
+      <button [routerLink]="['/edit']" class="btn btn-secondary">Editar Perfil</button>
+      <button (click)="logout()" class="btn btn-secondary">Cerrar Sesión</button>
+    </div>
+
+    <!-- Sección de Favoritos -->
+    <div *ngIf="showFavorites" class="favorites-section">
+      <h2>Tus Favoritos</h2>
+      <div *ngIf="favorites.length > 0" class="cards-container">
+        <div *ngFor="let favorite of favorites" class="card">
+          <img class="card-img-top" [src]="favorite.photoURL " alt="Imagen de favorito" />
+          <div class="card-body">
+            <h5 class="card-title">{{ favorite.name }}</h5>
+            <p class="card-text">{{ favorite.location }}</p>
+            <p class="card-text">{{ favorite.date }}</p>
+            <p class="card-text">${{ favorite.price }} ⇒ %{{ favorite.discount || 'No hay descuento' }}</p>
+            <p class="card-text">{{ favorite.city }}, {{ favorite.country }}</p>
+            <button class="btn btn-danger" (click)="toggleFavorite(favorite)">Eliminar de Favoritos</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="favorites.length === 0" class="no-favorites">
+        <p>No tienes favoritos aún.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

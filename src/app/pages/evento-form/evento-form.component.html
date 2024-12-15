@@ -1,0 +1,104 @@
+<div class="evento-form-dashboard">
+    <h1>Gestión de Eventos</h1>
+  
+    <!-- Botón para mostrar/ocultar formulario -->
+    <button class="btn btn-primary" (click)="toggleForm()">
+      {{ showForm ? 'Cerrar Formulario' : 'Crear/Editar Evento' }}
+    </button>
+  
+    <!-- Formulario -->
+    <div *ngIf="showForm" class="form-container">
+      <h2>{{ action === 'create' ? 'Crear Evento' : 'Editar Evento' }}</h2>
+      <form [formGroup]="form" (ngSubmit)="transaction()">
+        <div>
+          <label for="name">Título</label>
+          <input formControlName="name" id="name" placeholder="Nombre del evento" />
+        </div>
+        <div>
+          <label for="photoURL">URL de Imagen</label>
+          <input formControlName="photoURL" id="photoURL" placeholder="URL de la imagen" />
+        </div>
+        <div>
+          <label for="description">Descripción</label>
+          <textarea formControlName="description" id="description" placeholder="Descripción"></textarea>
+        </div>
+        <div>
+            <label for="location">Ubicacion</label>
+            <textarea formControlName="location" id="description" placeholder="Ubicacion"></textarea>
+          </div>
+        <div>
+          <label for="date">Fecha</label>
+          <input formControlName="date" id="date" type="date" />
+        </div>
+        <div>
+          <label for="price">Precio $</label>
+          <input formControlName="price" id="price" type="number" placeholder="Precio" />
+        </div>
+        <div>
+            <label for="discount">Descuento %</label>
+            <input formControlName="discount" id="price" type="number" placeholder="Descuento" />
+          </div>
+        <div>
+            <label for="price">Cantidad de entradas</label>
+            <input formControlName="cantidadEntradas" id="price" type="number" placeholder="Cantidad de entradas" />
+          </div>
+        <div>
+          <label for="category">Categoría</label>
+          <input formControlName="category" id="category" placeholder="Categoría" />
+        </div>
+        <div>
+            <label for="city">Ciudad</label>
+            <input formControlName="city" id="category" placeholder="Ciudad" />
+          </div>
+          <div>
+            <label for="country">Pais</label>
+            <input formControlName="country" id="category" placeholder="Pais" />
+          </div>
+        <button type="submit" class="btn btn-success">
+          {{ action === 'create' ? 'Guardar' : 'Actualizar' }}
+        </button>
+      </form>
+    </div>
+  
+    <!-- Tabla de eventos -->
+    <div class="eventos-list">
+      <h2>Lista de Eventos</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Ubicación</th>
+            <th>Ciudad</th>
+            <th>Pais</th>
+            <th>Fecha</th>
+            <th>Precio</th>
+            <th>Descuento</th>
+            <th>Stock</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let evento of eventos">
+            <td>{{ evento.name }}</td>
+            <td>{{ evento.description }}</td>
+            <td>{{ evento.location }}</td>
+            <td>{{ evento.city }}</td>
+            <td>{{ evento.country }}</td>
+            <td>{{ evento.date | date: 'shortDate' }}</td>
+            <td>{{ evento.price }}</td>
+            <td>{{ evento.discount }}</td>
+            <td>{{ evento.cantidadEntradas }}</td>
+            <td>{{ evento.category }}</td>
+            <td>
+              <button class="btn1 btn-sm" (click)="editEvent(evento)">Editar</button>
+              <button class="btn1 btn-sm" (click)="deleteEvent(evento.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="eventos.length === 0">No hay eventos disponibles.</p>
+    </div>
+  </div>
+  

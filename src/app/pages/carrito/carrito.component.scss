@@ -1,0 +1,167 @@
+/* Contenedor principal del carrito */
+.cart-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+
+.cart-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+  margin-bottom: 30px;
+}
+
+.cart-container h2 {
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+  margin-bottom: 30px;
+}
+
+/* Elementos del carrito */
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 30px 100px;
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 2px 6px #424242;
+}
+
+.cart-item img {
+  margin-top: 10px;
+  margin-right: 0px;
+  min-width: 180px;
+  max-width: 180px;
+  min-height: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cart-item h5 {
+  font-size: 1rem;
+  margin-right: 30px;
+  color: #424242;
+}
+
+.cart-item p {
+  font-size: 0.9rem;
+  color: #424242;
+  margin: 5px 0;
+  margin-left: 5px;
+}
+
+.cart-item-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Botón de eliminar */
+.btn-remove {
+  display: flex ;
+  align-items: center;
+  margin-right: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #d63031;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn-remove:hover {
+  color: #c0392b;
+}
+
+/* Sección total */
+.total-carrito {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f1f2f6;
+  border-radius: 8px;
+  border: 1px solid #dcdde1;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2d3436;
+}
+
+/* Inputs y botones */
+input[type='number'] {
+  width: 135px;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #dcdde1;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+input[type='number']:focus {
+  outline: none;
+  border-color: #74b9ff;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-danger {
+  background-color: #d63031;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #e74c3c;
+}
+
+.btn-success {
+  background-color: #0984e3;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #74b9ff;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Mensaje de carrito vacío */
+.ng-template {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #636e72;
+  margin-top: 20px;
+}
+
+.precio-tachado {
+  text-decoration: line-through;
+  color: red;
+  margin-right: 8px;
+}
+
